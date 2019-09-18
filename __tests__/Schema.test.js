@@ -12,7 +12,7 @@ describe('Schema', () => {
       required: true
     },
     married: {
-      Type: 'boolen',
+      Type: 'boolean',
       required: true
     },
     kids: {
