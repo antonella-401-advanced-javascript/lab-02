@@ -33,6 +33,26 @@ describe('Schema', () => {
     expect(schema.validate(personModel)).toEqual(personModel);
   });
 
+  it('Boolean caster', () => {
+    const castPerson = {
+      firstName: 'Chris',
+      lastName: 'Sample',
+      married: 'true',
+      kids: 3
+    };
+    expect(schema.validate(castPerson)).toEqual(personModel);
+  });
+
+  it('Number caster', () => {
+    const castPerson = {
+      firstName: 'Chris',
+      lastName: 'Sample',
+      married: 'true',
+      kids: '3'
+    };
+    expect(schema.validate(castPerson)).toEqual(personModel);
+  });
+
   it('throws on invalid model', () => {
     const badPerson = {
       firstName: 'Chris',
@@ -40,8 +60,14 @@ describe('Schema', () => {
       married: true,
       kids: true
     };
+    const badPerson2 = {
+      firstName: 'Chris',
+      lastName: 'Sample',
+      married: true,
+      kids: '1gh4'
+    };
     expect(schema.validate(badPerson)).not.toEqual(personModel);
+    expect(schema.validate(badPerson2)).not.toEqual(personModel);
   });
 
-  // more test cases...
 });

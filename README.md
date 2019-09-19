@@ -32,3 +32,6 @@ Takes a model and compares with set schema type and requirements, returns new ob
 #### Tests
 * Unit Tests: `npm test`
 * Lint Tests: `npm run lint`
+
+#### Whiteboard
+![Whiteboard Diagram](whiteboard.jpg)
