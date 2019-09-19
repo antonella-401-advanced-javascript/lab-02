@@ -11,10 +11,10 @@ describe('Schema', () => {
       Type: 'string',
       required: true
     },
-    married: {
-      Type: 'boolean',
-      required: true
-    },
+    // married: {
+    //   Type: 'boolean',
+    //   required: true
+    // },
     kids: {
       Type: 'number',
       required: true
@@ -26,14 +26,19 @@ describe('Schema', () => {
     const person = {
       firstName: 'Chris',
       lastName: 'Sample',
-      married: true,
+      // married: true,
       kids: 3
     };
-    expect(schema.validate(person)).toEqual(schema);
+    expect(schema.validate(person)).toEqual(person);
   });
 
   it('throws on invalid model', () => {
-
+    const person = {
+      firstName: 'Chris',
+      lastName: 'Sample',
+      married: 'true',
+      kids: 3
+    };
   });
 
   // more test cases...
